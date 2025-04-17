@@ -1,10 +1,11 @@
-from sqlmodel import Field, Session, SQLModel, create_engine, select
+from sqlmodel import Field, SQLModel
 
 
 class ProjectBase(SQLModel):
     name: str = Field(index=True)
     location: str = Field(index=True)
-    project_manager: str 
+    customer: str = Field(index=True)
+    project_manager: str = Field(index=True)
 
 class Project(ProjectBase, table=True):
     id: int | None = Field(default=None, primary_key=True)
