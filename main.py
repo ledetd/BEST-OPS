@@ -14,8 +14,6 @@ sqlite_url = f"sqlite:///{sqlite_file_name}"
 connect_args = {"check_same_thread": False}
 engine = create_engine(sqlite_url, connect_args=connect_args)
 
-
-
 def create_db_and_tables():
     SQLModel.metadata.create_all(engine)
 
@@ -23,7 +21,6 @@ def create_db_and_tables():
 def get_session():
     with Session(engine) as session:
         yield session
-
 
 SessionDep = Annotated[Session, Depends(get_session)]
 
@@ -37,7 +34,6 @@ def on_startup():
 async def root():
     return {"BEST": "OPS Manager"}
 
-
 @app.post("/projects/", response_model=ProjectPublic)
 def create_project(project: ProjectCreate, session: SessionDep):
     db_project = Project.model_validate(project)
@@ -45,7 +41,6 @@ def create_project(project: ProjectCreate, session: SessionDep):
     session.commit()
     session.refresh(db_project)
     return db_project
-
 
 @app.get("/projects/", response_model=list[ProjectPublic])
 def read_projects(
@@ -56,14 +51,12 @@ def read_projects(
     projects = session.exec(select(Project).offset(offset).limit(limit)).all()
     return projects
 
-
 @app.get("/projects/{project_id}", response_model=ProjectPublic)
 def read_project(project_id: int, session: SessionDep):
     project = session.get(Project, project_id)
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
     return project
-
 
 @app.patch("/projects/{project_id}", response_model=ProjectPublic)
 def update_project(project_id: int, project: ProjectUpdate, session: SessionDep):
@@ -77,13 +70,6 @@ def update_project(project_id: int, project: ProjectUpdate, session: SessionDep)
     session.refresh(project_db)
     return project_db
 
-
-
-
-
-
-
-
 @app.post("/wells/", response_model=WellPublic)
 def create_well(well: WellCreate, session: SessionDep):
     db_well = Well.model_validate(well)
@@ -91,7 +77,6 @@ def create_well(well: WellCreate, session: SessionDep):
     session.commit()
     session.refresh(db_well)
     return db_well
-
 
 @app.get("/wells/", response_model=list[WellPublic])
 def read_wells(
@@ -110,7 +95,6 @@ def read_well(well_id: int, session: SessionDep):
         raise HTTPException(status_code=404, detail="Well not found")
     return well
 
-
 @app.patch("/wells/{well_id}", response_model=WellPublic)
 def update_well(well_id: int, well: WellUpdate, session: SessionDep):
     well_db = session.get(Well, well_id)
@@ -123,9 +107,6 @@ def update_well(well_id: int, well: WellUpdate, session: SessionDep):
     session.refresh(well_db)
     return well_db
 
-
-
-
 @app.post("/locations/", response_model=LocationPublic)
 def create_location(location: LocationCreate, session: SessionDep):
     db_location = Location.model_validate(location)
@@ -133,7 +114,6 @@ def create_location(location: LocationCreate, session: SessionDep):
     session.commit()
     session.refresh(db_location)
     return db_location
-
 
 @app.get("/locations/", response_model=list[LocationPublic])
 def read_locations(
@@ -144,14 +124,12 @@ def read_locations(
     locations = session.exec(select(Location).offset(offset).limit(limit)).all()
     return locations
 
-
 @app.get("/locations/{location_id}", response_model=LocationPublic)
 def read_location(location_id: int, session: SessionDep):
     location = session.get(Location, location_id)
     if not location:
         raise HTTPException(status_code=404, detail="Location not found")
     return location
-
 
 @app.patch("/locations/{location_id}", response_model=LocationPublic)
 def update_location(location_id: int, location: LocationUpdate, session: SessionDep):
