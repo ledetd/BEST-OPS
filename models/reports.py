@@ -1,6 +1,9 @@
 from sqlmodel import Field, SQLModel
+from typing import Annotated
+from datetime import date
 
 class ReportBase(SQLModel):
+    report_date: date = Field(index=True)
     name: str = Field(index=True)
     location: str = Field(index=True)
 
