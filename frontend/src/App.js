@@ -32,9 +32,9 @@ const App = () => {
     console.log('formData',formData);
     fetchProjects();
     setFormData({
-      name: '',
-      description: '',
-      price: ''
+      project: '',
+      location: '',
+      customer: ''
     });
   };
 
@@ -55,9 +55,9 @@ const App = () => {
         <table className='table table-striped table-bordered'>
           <thead className='table-dark'>
             <tr>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Price</th>
+              <th>Project</th>
+              <th>Location</th>
+              <th>Customer</th>
             </tr>
           </thead>
           <tbody>
@@ -65,6 +65,8 @@ const App = () => {
             {projects.map((project) => (
               <tr key={project.id}>
                 <td>{project.name}</td>
+                <td>{project.location}</td>
+                <td>{project.customer}</td>
        
               </tr>
             ))}
