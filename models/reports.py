@@ -5,7 +5,7 @@ from datetime import date
 class ReportBase(SQLModel):
     report_date: date = Field(index=True)
     name: str = Field(index=True)
-    location: str = Field(index=True)
+    status: str = Field(index=True)
 
 class Report(ReportBase, table=True):
     id: int | None = Field(default=None, primary_key=True)
@@ -18,7 +18,7 @@ class ReportCreate(ReportBase):
 
 class ReportUpdate(ReportBase):
     name: str | None = None
-    location: str | None = None
+    status: str | None = None
     
 
 
