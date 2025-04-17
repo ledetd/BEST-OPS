@@ -19,3 +19,5 @@ class ProjectUpdate(ProjectBase):
     name: str | None = None
     location: str | None = None
     project_manager: str | None = None
+
+    
