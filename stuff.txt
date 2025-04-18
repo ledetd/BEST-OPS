@@ -1,42 +1,38 @@
+in api.js
+
+import axios from 'axios'
+
+const api = axios.create({
+    baseURL: 'http://localhost:8000',
+})
+
+export default api;
+
+
+####
+IN App.js
+
+
 import React, {useState, useEffect} from 'react'
 import api from './api'
 
 const App = () => {
   const [projects, setProjects] = useState([]);
-  const [formData, setFormData] = useState({
-    name: '',
-    description: '',
-    price: ''
-  });
-
   const fetchProjects = async () => {
     const response = await api.get('/projects/');
     setProjects(response.data)
   };
-
+  const [wells, setWells] = useState([]);
+  const fetchWells = async () => {
+    const response = await api.get('/wells/');
+    setWells(response.data)
+  };
   useEffect(() => {
     fetchProjects();
   }, []);
-
-  const handleInputChange = (event) => {
-    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
-    setFormData({
-      ...formData,
-      [event.target.name]: value,
-    });
-  }
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    await api.post('/projects/', formData);
-    console.log('formData',formData);
-    fetchProjects();
-    setFormData({
-      project: '',
-      location: '',
-      customer: ''
-    });
-  };
+  useEffect(() => {
+    fetchWells();
+  }, []);
 
   return (
     <div>
@@ -44,11 +40,14 @@ const App = () => {
       <nav className='navbar navbar-dark bg-primary'>
         <div className='container-fluid'>
           <a className='navbar-brand' href='/'>
-            
+            Hello
           </a>
+          <a className='navbar-brand' href='/wells'>
+            Wells
+          </a>
+    
         </div>
       </nav>
-
       {/* Table Section */}
       <div className='container'>
         <h2 className='text-center my-4'>Projects List</h2>
@@ -61,13 +60,23 @@ const App = () => {
             </tr>
           </thead>
           <tbody>
-            
+          
             {projects.map((project) => (
               <tr key={project.id}>
                 <td>{project.name}</td>
                 <td>{project.location}</td>
                 <td>{project.customer}</td>
-       
+              </tr>
+            ))}
+            <thead className='table-dark'>
+            <h2 className='text-center my-4'>Well List</h2>
+            <tr>
+              <th>Well</th>
+            </tr>
+          </thead>
+            {wells.map((well) => (
+              <tr key={well.id}>
+                <td>{well.name}</td>
               </tr>
             ))}
           </tbody>
@@ -75,7 +84,6 @@ const App = () => {
       </div>
     </div>
   )
-
 }
 
 export default App;
