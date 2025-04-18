@@ -63,9 +63,18 @@ const App = () => {
     <div class="flex flex-wrap -m-4">
       <div class="xl:w-1/3 md:w-1/2 p-4">
         <div class="border border-gray-200 p-6 rounded-lg">
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Well Name Here</h2>
-          <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
-          <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Well Name Here 
+
+          {wells.map((well) => (
+              <tr key={well.id}>
+                <td>{well.name}</td>
+              </tr>
+            ))}
+
+          </h2>
+          <p class="leading-relaxed text-base">Current well operations.</p>
+          <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+Button</button>
         </div>
       </div>
     </div>
