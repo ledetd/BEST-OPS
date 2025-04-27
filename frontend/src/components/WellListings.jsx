@@ -22,7 +22,7 @@ const WellListings = () => {
         <div class="p-4">
           <div class="mb-6">
             <div class="text-gray-600 my-2">{ well.name }</div>
-            <h3 class="text-xl font-bold">PM</h3>
+            <h3 class="text-xl font-bold">PM: </h3>
           </div>
 
           <div class="mb-5">
