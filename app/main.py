@@ -1,5 +1,4 @@
 from typing import Annotated
-
 from fastapi import Depends, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import Field, Session, SQLModel, create_engine, select
@@ -8,6 +7,7 @@ from models.wells import Well, WellPublic, WellCreate, WellUpdate
 from models.locations import Location, LocationPublic, LocationCreate, LocationUpdate
 from models.crews import Crew, CrewPublic, CrewCreate, CrewUpdate
 from models.reports import Report, ReportPublic, ReportCreate, ReportUpdate
+#from models.regions
 
 sqlite_file_name = "best.db"
 sqlite_url = f"sqlite:///{sqlite_file_name}"
