@@ -1,41 +1,22 @@
 import React from 'react'
-
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import HomeCards from './components/HomeCards';
-import WellListings from './components/WellListings';
-import ProjectListings from './components/ProjectListings';
-
-
-const App = () => {
+import {Route, createBrowserRouter, createRoutesFromElements,RouterProvider} from 'react-router-dom';
+import MainLayout from './layouts/MainLayout';
+import HomePage from './pages/HomePage';
+import WellsPage from './pages/WellsPage'
+import ProjectsPage from './pages/ProjectsPage';
 
 
-  return (
-    <>   
-    <Navbar />
-    <Hero />
-    <HomeCards />
-    <WellListings />
-    <ProjectListings />
-   
-
-
-
-
-
- 
- 
-
-  <section className="m-auto max-w-lg my-10 px-6">
-    <a
-      href="jobs.html"
-      className="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700"
-      >View All Projects</a
-    >
-  </section>
-</>
-
+const router = createBrowserRouter(
+  createRoutesFromElements(
+  <Route path='/' element={<MainLayout />}>
+    < Route index element={ <HomePage /> } />
+    < Route path='/wells' element={ <WellsPage /> } />
+    < Route path='/projects' element={ <ProjectsPage /> } />
+  </Route>
   )
-}
+);
+const App = () => {
+  return < RouterProvider router={router}/>
+};
 
 export default App;
