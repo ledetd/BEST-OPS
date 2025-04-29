@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import dkflag from '../assets/images/dkflag.jpg';
+import best_logo from '../assets/images/best_logo.png';
 
 const Navbar = () => {
   return (
