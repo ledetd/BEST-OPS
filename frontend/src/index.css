@@ -7,10 +7,20 @@
 section.best-body {
     background-color: #042242;
   }
+
+section.best-border {
+  border-color: #F3BA16;
+}
 nav.best-body {
   background-color: #042242;
 }
 
-best-body {
+nav.best-border {
+  border-color: #F3BA16;
+}
+
+div.best-body {
   background-color: #F3BA16 ;
 }
+
+

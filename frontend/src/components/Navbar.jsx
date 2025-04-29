@@ -5,7 +5,7 @@ import dkflag from '../assets/images/dkflag.jpg';
 const Navbar = () => {
   return (
     <>
-    <nav className="best-body border-b border-blue-100">
+    <nav className="best-body border-b best-border">
 <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
   <div className="flex h-20 items-center justify-between">
     <div
@@ -18,17 +18,13 @@ const Navbar = () => {
           src={ dkflag }
           alt="BEST Operations"
         />
-        <span className="hidden md:block text-white text-2xl font-bold ml-2"
-          >BEST</span
+        <span className="hidden md:block text-white text-2xl font-bold ml-2 uppercase"
+          >Themis</span
         >
       </Link>
       <div className="md:ml-auto">
         <div className="flex space-x-2">
-          <Link
-            to="/"
-            className="text-white best-body hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-            >Home</Link
-          >
+
           <Link
             to="/wells"
             className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
