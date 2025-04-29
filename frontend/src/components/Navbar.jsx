@@ -21,6 +21,7 @@ const Navbar = () => {
         <span className="hidden md:block text-white text-2xl font-bold ml-2 uppercase"
           >Themis</span
         >
+        
       </Link>
       <div className="md:ml-auto">
         <div className="flex space-x-2">
