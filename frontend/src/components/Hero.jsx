@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Hero = ({title = "BEST OPS", subtitle = "BEST PM for maximum awesomeness"}) => {
+const Hero = ({title = "THEMIS", subtitle = "OPS / PM for Maximum Awesomeness"}) => {
   return (
   
     

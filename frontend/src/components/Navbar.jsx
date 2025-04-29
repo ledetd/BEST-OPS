@@ -16,11 +16,11 @@ const Navbar = () => {
       <Link className="flex flex-shrink-0 items-center mr-4" to="/">
         <img
           className="h-10 w-auto"
-          src={ dkflag }
+          src={ best_logo }
           alt="BEST Operations"
         />
         <span className="hidden md:block text-white text-2xl font-bold ml-2 uppercase"
-          >Themis</span
+          ></span
         >
         
       </Link>
