@@ -23,6 +23,7 @@ const ProjectPage = () => {
     <div>{ project.project_manager }</div>
     </>
   )
+  
 }
 
 
