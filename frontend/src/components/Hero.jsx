@@ -4,7 +4,7 @@ const Hero = ({title = "THEMIS", subtitle = "OPS / PM for Maximum Awesomeness"})
   return (
   
     
-    <section className="best-body border-b best-border py-20 mb-4">
+    <section className="best-body border-y best-border py-20 mb-4">
     <div
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center"
     >

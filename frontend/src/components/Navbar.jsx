@@ -1,9 +1,10 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
-import dkflag from '../assets/images/dkflag.jpg';
+import {NavLink} from 'react-router-dom';
 import best_logo from '../assets/images/best_logo.png';
 
 const Navbar = () => {
+  const linkClass = ({ isActive }) => isActive ? 'bg-black text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2' : 'text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'
+
   return (
     <>
     <nav className="best-body border-b best-border">
@@ -13,7 +14,7 @@ const Navbar = () => {
       className="flex flex-1 items-center justify-center md:items-stretch md:justify-start"
     >
     
-      <Link className="flex flex-shrink-0 items-center mr-4" to="/">
+      <NavLink className="flex flex-shrink-0 items-center mr-4" to="/">
         <img
           className="h-10 w-auto"
           src={ best_logo }
@@ -23,19 +24,24 @@ const Navbar = () => {
           ></span
         >
         
-      </Link>
+      </NavLink>
       <div className="md:ml-auto">
         <div className="flex space-x-2">
 
-          <Link
+          <NavLink
             to="/wells"
-            className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-            >Wells</Link
+            className= {linkClass}
+            >Wells</NavLink
           >
-          <Link
+          <NavLink
             to="/projects"
-            className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-            >Projects</Link
+            className={linkClass}
+            >Projects</NavLink
+          >
+          <NavLink
+            to="/add-project"
+            className={linkClass}
+            >Add Project</NavLink
           >
         </div>
       </div>
