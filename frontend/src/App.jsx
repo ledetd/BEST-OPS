@@ -20,8 +20,6 @@ const App = () => {
     return;
   };
 
-  
-
   const router = createBrowserRouter(
     createRoutesFromElements(
     <Route path='/' element={<MainLayout />}>
