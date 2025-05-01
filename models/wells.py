@@ -1,4 +1,5 @@
 from sqlmodel import Field, SQLModel
+from .projects import ProjectBase
 
 class WellBase(SQLModel):
     name: str = Field(index=True)
