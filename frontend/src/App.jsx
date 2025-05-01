@@ -4,14 +4,22 @@ import MainLayout from './layouts/MainLayout';
 import HomePage from './pages/HomePage';
 import WellsPage from './pages/WellsPage'
 import ProjectsPage from './pages/ProjectsPage';
+import ProjectPage from './pages/ProjectPage';
 import AddProjectPage from './pages/AddProjectPage';
 
 
-
 const App = () => {
-  const addProject = (newProject) => {
-    console.log(newProject)
-  }
+  const addProject = async (newProject) => {
+    const res = await fetch('http://127.0.0.1:8000/projects', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newProject),
+    });
+    return;
+  };
+
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -19,6 +27,7 @@ const App = () => {
       < Route index element={ <HomePage /> } />
       < Route path='/wells' element={ <WellsPage /> } />
       < Route path='/projects' element={ <ProjectsPage /> } />
+      < Route path='/projects/:id' element={ <ProjectPage /> } />
       < Route path='/add-project' element={ <AddProjectPage addProjectSubmit={addProject} /> } />
     </Route>
     )
