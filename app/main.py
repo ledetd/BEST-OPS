@@ -1,13 +1,10 @@
 from typing import Annotated
+from datetime import date
 from fastapi import Depends, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import Field, Session, SQLModel, create_engine, select
-from models.projects import Project, ProjectPublic, ProjectCreate, ProjectUpdate
-from models.wells import Well, WellPublic, WellCreate, WellUpdate
-from models.locations import Location, LocationPublic, LocationCreate, LocationUpdate
-from models.crews import Crew, CrewPublic, CrewCreate, CrewUpdate
-from models.reports import Report, ReportPublic, ReportCreate, ReportUpdate
-#from models.regions
+from models.projects import Project, ProjectPublic, ProjectCreate, ProjectUpdate, Well, WellPublic, WellCreate, WellUpdate, Location, LocationPublic, LocationCreate, LocationUpdate, Crew, CrewPublic, CrewCreate, CrewUpdate, Report, ReportPublic, ReportCreate, ReportUpdate
+
 
 sqlite_file_name = "best.db"
 sqlite_url = f"sqlite:///{sqlite_file_name}"
@@ -157,12 +154,6 @@ def update_location(location_id: int, location: LocationUpdate, session: Session
     return location_db
 
 
-
-
-
-
-
-
 @app.post("/crews/", response_model=CrewPublic)
 def create_location(location: CrewCreate, session: SessionDep):
     db_location = Crew.model_validate(location)
@@ -201,8 +192,6 @@ def update_location(location_id: int, location: CrewUpdate, session: SessionDep)
     session.commit()
     session.refresh(location_db)
     return location_db
-
-
 
 
 @app.post("/reports/", response_model=ReportPublic)

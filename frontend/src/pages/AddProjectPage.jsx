@@ -23,8 +23,6 @@ const AddProjectPage = ({ addProjectSubmit }) => {
         return navigate('/projects');
     };
 
-    
-
   return (
     
     <section className="best-body">
@@ -49,9 +47,6 @@ const AddProjectPage = ({ addProjectSubmit }) => {
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
-            
-
-            
 
             <div className='mb-4'>
               <label className='block text-gray-700 font-bold mb-2'>
@@ -102,8 +97,7 @@ const AddProjectPage = ({ addProjectSubmit }) => {
                 onChange={(e) => setProjectmanager(e.target.value)}
               />
             </div>
-          
-
+        
             <div>
               <button
                 className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
