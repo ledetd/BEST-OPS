@@ -32,6 +32,7 @@ class ProjectPublic(ProjectBase):
 
 class ProjectCreate(ProjectBase):
     pass   
+
 class ProjectUpdate(ProjectBase):
     name: str | None = None
     location: str | None = None

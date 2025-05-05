@@ -34,6 +34,11 @@ const Navbar = () => {
             >Wells</NavLink
           >
           <NavLink
+            to="/add-well"
+            className={linkClass}
+            >Add Well</NavLink
+          >
+          <NavLink
             to="/projects"
             className={linkClass}
             >Projects</NavLink
