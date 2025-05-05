@@ -1,5 +1,6 @@
 import React, { useState }from 'react'
 import { useNavigate } from 'react-router-dom';
+import SubmitButton from '../components/SubmitButton';
 
 const AddWellPage = ({ addWellSubmit }) => {
     const [name, setName] = useState('');
@@ -45,12 +46,7 @@ const AddWellPage = ({ addWellSubmit }) => {
             </div>
         
             <div>
-              <button
-                className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
-                type="submit"
-              >
-                Add Well
-              </button>
+            < SubmitButton />
             </div>
           </form>
         </div>
