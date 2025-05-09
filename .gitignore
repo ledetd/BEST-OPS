@@ -85,3 +85,7 @@ coverage.xml
 /pysqlite_test_schema.db
 *.sqlite3
 .mypy_cache/
+.env
+venv
+.venv
+env
