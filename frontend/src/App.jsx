@@ -2,7 +2,8 @@ import React from 'react'
 import {Route, createBrowserRouter, createRoutesFromElements,RouterProvider} from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import HomePage from './pages/HomePage';
-import WellsPage from './pages/WellsPage'
+import WellsPage from './pages/WellsPage';
+import WellPage from './pages/WellPage';
 import ProjectsPage from './pages/ProjectsPage';
 import ProjectPage from './pages/ProjectPage';
 import AddProjectPage from './pages/AddProjectPage';
@@ -37,6 +38,7 @@ const App = () => {
     <Route path='/' element={<MainLayout />}>
       < Route index element={ <HomePage /> } />
       < Route path='/wells' element={ <WellsPage /> } />
+      < Route path='/wells/:id' element={ <WellPage /> } />
       < Route path='/add-well' element={ <AddWellPage addWellSubmit={addWell} /> } />
       < Route path='/projects' element={ <ProjectsPage /> } />
       < Route path='/projects/:id' element={ <ProjectPage /> } />
