@@ -89,3 +89,4 @@ coverage.xml
 venv
 .venv
 env
+db.themis
