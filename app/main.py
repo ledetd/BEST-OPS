@@ -7,21 +7,6 @@ from models.projects import Project, ProjectPublic, ProjectCreate, ProjectUpdate
 from contextlib import asynccontextmanager
 from db import init_db, get_session
 
-# sqlite_file_name = "best.db"
-# sqlite_url = f"sqlite:///{sqlite_file_name}"
-
-# connect_args = {"check_same_thread": False}
-# engine = create_engine(sqlite_url, connect_args=connect_args)
-
-# def create_db_and_tables():
-#     SQLModel.metadata.create_all(engine)
-
-
-# def get_session():
-#     with Session(engine) as session:
-#         yield session
-
-# Session = Annotated[Session, Depends(get_session)]
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
