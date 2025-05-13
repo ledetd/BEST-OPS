@@ -3,7 +3,7 @@ from datetime import date
 from fastapi import Depends, FastAPI, HTTPException, Query, Path
 from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import Field, Session, SQLModel, create_engine, select
-from models.projects import Project, ProjectPublic, ProjectCreate, ProjectUpdate, Well, WellPublic, WellCreate, WellUpdate, Location, LocationPublic, LocationCreate, LocationUpdate, Crew, CrewPublic, CrewCreate, CrewUpdate, Report, ReportPublic, ReportCreate, ReportUpdate
+from models.projects import Project, ProjectPublic, ProjectCreate, ProjectUpdate, Well, WellPublic, WellCreate, WellUpdate
 from contextlib import asynccontextmanager
 from db import init_db, get_session
 
